@@ -608,7 +608,7 @@ function Footer() {
                 { label: "Chi gestisce Resella", href: "https://resella.meeda.it/legal-notice.html" },
                 { label: "Contatti", href: "mailto:app.resella.ai@gmail.com" },
                 { label: "Genesis Vintage", href: "https://genesisvintage.it/", external: true },
-                { label: "Instagram", href: "https://www.instagram.com/resella.ai/", external: true },
+                { label: "Meeda Studio", href: "https://meeda.it/", external: true },
               ]}
             />
           </div>
