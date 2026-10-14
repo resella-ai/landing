@@ -33,6 +33,12 @@ import originalKappaWindbreaker from "./assets/reference/gallery/originals/origi
 import originalDarkJeans from "./assets/reference/gallery/originals/original-dark-jeans.jpg";
 
 const appUrl = "https://resella.meeda.it";
+const affiliateCode = typeof window === "undefined"
+  ? ""
+  : new URLSearchParams(window.location.search).get("ref")?.trim() ?? "";
+const appEntryUrl = affiliateCode
+  ? `${appUrl}/login.html?ref=${encodeURIComponent(affiliateCode)}`
+  : appUrl;
 
 gsap.registerPlugin(SplitText);
 
@@ -202,7 +208,7 @@ function Header() {
           <a href="#risultati">Risultati</a>
           <a href="#come-funziona">Come funziona</a>
         </nav>
-        <a className="action header-action" href={appUrl}>
+        <a className="action header-action" href={appEntryUrl}>
           Prova gratis
         </a>
       </div>
@@ -220,7 +226,7 @@ function Hero() {
               Resella. Meno tempo a preparare, <em>più tempo per vendere.</em>
             </h1>
             <div className="hero-actions">
-              <a className="action hero-cta" href={appUrl}>
+              <a className="action hero-cta" href={appEntryUrl}>
                 Prova gratis
               </a>
               <a className="text-link" href="#risultati">
@@ -362,7 +368,7 @@ function Gallery() {
           ))}
         </div>
         <div className="gallery-actions reveal">
-          <a className="action gallery-cta" href={appUrl}>Prova gratis<Arrow /></a>
+          <a className="action gallery-cta" href={appEntryUrl}>Prova gratis<Arrow /></a>
         </div>
       </div>
     </section>
@@ -445,7 +451,7 @@ function DepopFoldSection() {
               />
             </div>
             <div className="fold-actions reveal">
-              <a className="action fold-video-action" href={appUrl}>Prova gratis<Arrow /></a>
+              <a className="action fold-video-action" href={appEntryUrl}>Prova gratis<Arrow /></a>
               <a className="fold-more-link" href="#risultati">Scopri altri esempi<Arrow /></a>
             </div>
           </div>
@@ -564,7 +570,7 @@ function Footer() {
                 { label: "Come funziona", href: "#come-funziona" },
                 { label: "Risultati", href: "#risultati" },
                 { label: "Depop Fold", href: "#depop-fold" },
-                { label: "Prova Resella", href: appUrl },
+                { label: "Prova Resella", href: appEntryUrl },
               ]}
             />
             <FooterColumn
