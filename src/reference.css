@@ -1201,5 +1201,5 @@ main {
   .site-footer-bottom > p,
   .site-footer-bottom nav a { font-size: 11px; }
   .site-footer-bottom nav { justify-content: flex-start; gap: 10px 18px; }
-  .site-footer-watermark { width: 96%; }
+  .site-footer-watermark { bottom: 0; width: 96%; }
 }
