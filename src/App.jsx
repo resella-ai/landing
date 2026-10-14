@@ -200,6 +200,8 @@ function Header() {
         </a>
         <nav aria-label="Navigazione principale">
           <a href="#risultati">Risultati</a>
+          <a href="#come-funziona">Come funziona</a>
+          <a href="#faq">FAQ</a>
         </nav>
         <a className="action header-action" href={appUrl}>
           Prova gratis
@@ -275,7 +277,7 @@ function ProblemSection() {
   }, []);
 
   return (
-    <section className="problem-section reference-section" aria-labelledby="problem-title">
+    <section className="problem-section reference-section" id="come-funziona" aria-labelledby="problem-title">
       <div className="problem-frame">
         <header className="problem-heading reveal">
           <span className="problem-kicker">Il problema</span>
@@ -510,6 +512,44 @@ function Markets() {
   );
 }
 
+const faqItems = [
+  {
+    question: "Come funziona Resella?",
+    answer: "Carichi la foto del capo; Resella prepara immagini curate e una descrizione pronta. Poi scarichi le immagini e copi il testo per pubblicare il tuo annuncio.",
+  },
+  {
+    question: "Devo avere già foto professionali?",
+    answer: "No. Puoi partire da una foto scattata a casa: Resella ti aiuta a presentare meglio il capo con immagini curate e una composizione pulita.",
+  },
+  {
+    question: "Resella pubblica direttamente sui marketplace?",
+    answer: "No. Prepari i contenuti su Resella, poi scarichi le immagini e copi la descrizione per pubblicare manualmente dove vendi.",
+  },
+  {
+    question: "Dove posso usare le immagini e le descrizioni?",
+    answer: "Puoi usarle sui marketplace che preferisci, tra cui Vinted, Depop, Wallapop, eBay, Etsy e Vestiaire Collective.",
+  },
+];
+
+function FAQSection() {
+  return (
+    <section className="faq reference-section" id="faq" aria-labelledby="faq-title">
+      <div className="faq-content frame reveal">
+        <span className="gallery-kicker">FAQ</span>
+        <h2 id="faq-title" className="split-title">Domande frequenti</h2>
+        <div className="faq-list">
+          {faqItems.map(({ question, answer }) => (
+            <details key={question}>
+              <summary>{question}<span className="faq-chevron" aria-hidden="true" /></summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function App() {
   useSmoothScroll();
   useScrollReveal();
@@ -524,6 +564,7 @@ export default function App() {
       <Gallery />
       <PartnerSection />
       <DepopFoldSection />
+      <FAQSection />
     </main>
   </>;
 }
