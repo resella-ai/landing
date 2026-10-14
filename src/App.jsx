@@ -571,7 +571,7 @@ function Footer() {
                   <span>@resella.ai</span>
                 </a>
                 <a
-                  href="https://www.trustpilot.com/review/resella.ai"
+                  href="https://www.trustpilot.com/review/resella.meeda.it"
                   target="_blank"
                   rel="noreferrer"
                   className="site-footer-social-link"
@@ -598,7 +598,7 @@ function Footer() {
                 { label: "Informazioni legali", href: "https://resella.meeda.it/legal.html" },
                 { label: "Policy AI", href: "https://resella.meeda.it/ai-policy.html" },
                 { label: "Supporto", href: "mailto:app.resella.ai@gmail.com" },
-                { label: "Trustpilot", href: "https://www.trustpilot.com/review/resella.ai", external: true },
+                { label: "Trustpilot", href: "https://www.trustpilot.com/review/resella.meeda.it", external: true },
               ]}
             />
             <FooterColumn
