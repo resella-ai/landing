@@ -1,0 +1,20 @@
+RESELLA - BRAND IDENTITY
+
+14 immagini finali + 2 riferimenti originali.
+Cartelle: loghi, icone_app, brand, riferimento.
+Il file resella_app_icon_2d_bianca.png e l'icona selezionata: R bianca piatta,
+con pieghe segnate, su fondo viola. resella_app_icon_2d_disegnata.png e
+la variante 2D a colori precedente.
+Palette disponibile in TXT, CSS e JSON, con ruoli per l'app.
+
+I file con suffisso "trasparente" hanno un canale alpha.
+I file "fondo_scuro" e "fondo_chiaro" includono lo sfondo.
+Le versioni bianche corrette sono su fondo scuro, NON trasparenti.
+Sono inclusi solo gli output selezionati; le prove bianche con artefatti
+sono state escluse.
+
+Sono asset raster PNG generati, non master vettoriali SVG.
+Mantenere sempre le proporzioni e lasciare spazio intorno al logo.
+Usare il logo orizzontale nell'header, quello verticale nei materiali
+promozionali, il simbolo e le icone app negli spazi piccoli.
+La tavola visiva e un riferimento grafico: per HEX esatti usare la palette.

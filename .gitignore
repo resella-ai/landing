@@ -1,0 +1,14 @@
+node_modules/
+react-build/
+dist/
+.codex/
+.playwright-mcp/
+.temp-profile/
+.agents/
+.impeccable/
+.env*
+!.env.example
+Thumbs.db
+/hero-*.png
+/landing-*.png
+/preview.png

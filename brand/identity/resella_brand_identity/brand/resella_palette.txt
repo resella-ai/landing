@@ -1,0 +1,33 @@
+RESELLA - PALETTE DI BRANDING E APP
+
+PALETTE PRINCIPALE DEL RIFERIMENTO
+Violet    #6C4DFF   RGB 108, 77, 255     CTA, selezione e accenti
+Lilac     #B794FF   RGB 183, 148, 255    Dettagli e illustrazioni
+Mist      #E9DCFF   RGB 233, 220, 255    Badge e superfici viola tenui
+Fog       #F4F4F7   RGB 244, 244, 247    Sfondo chiaro dell'app
+Charcoal  #12121A   RGB 18, 18, 26       Testi principali e superfici dark
+
+ESTENSIONI PER UI E ICONA 2D
+Violet Deep  #3210A8   RGB 50, 16, 168   Dettagli scuri e hover
+White        #FFFFFF   RGB 255, 255, 255 Card chiare e testo su CTA
+
+APPLICAZIONE IN APP
+Sfondo pagina: Fog. Card: White. Testo: Charcoal.
+CTA primaria: Violet con testo White. Hover: Violet Deep.
+Badge e selezione tenue: Mist con testo Violet Deep.
+Modalita scura: Charcoal con testo White e accenti Lilac.
+
+GRADIENTI DI PROGETTO
+Principale: Violet (#6C4DFF) -> Lilac (#B794FF)
+Profondo: Violet (#6C4DFF) -> Violet Deep (#3210A8)
+Usare soprattutto nelle illustrazioni; mantenere puliti testi e controlli UI.
+
+TIPOGRAFIA CONSIGLIATA
+Manrope: 700 titoli, 600 pulsanti, 400 testi.
+E un font consigliato per l'app, non l'identificazione del wordmark originale.
+
+NOTA SUI COLORI REALI
+Questi HEX sono i valori esatti di progetto da applicare a CSS e componenti.
+I cinque colori principali derivano dalla palette indicata nel riferimento.
+Le immagini PNG possono contenere sfumature e leggere variazioni cromatiche.
+Per il branding usare questi token, non valori campionati dai PNG.
