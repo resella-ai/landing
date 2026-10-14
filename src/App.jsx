@@ -201,7 +201,6 @@ function Header() {
         <nav aria-label="Navigazione principale">
           <a href="#risultati">Risultati</a>
           <a href="#come-funziona">Come funziona</a>
-          <a href="#faq">FAQ</a>
         </nav>
         <a className="action header-action" href={appUrl}>
           Prova gratis
@@ -400,10 +399,10 @@ function FoldIcon({ name }) {
 function FoldFeature({ feature }) {
   return (
     <li className="fold-feature reveal">
-      <span className="fold-feature-mark"><FoldIcon name={feature.icon} /></span>
+      <span className="fold-feature-mark" aria-hidden="true"><FoldIcon name={feature.icon} /></span>
       <span className="fold-feature-copy">
         <strong>{feature.title}</strong>
-        <span>{feature.description}</span>
+        <span className="fold-feature-description">{feature.description}</span>
       </span>
     </li>
   );
@@ -420,7 +419,7 @@ function FoldColumn({ title, features, side }) {
 
 function DepopFoldSection() {
   return (
-    <section className="fold-section reference-section" aria-labelledby="fold-title">
+    <section className="fold-section reference-section" id="depop-fold" aria-labelledby="fold-title">
       <div className="frame fold-frame">
         <header className="fold-heading reveal">
           <span className="gallery-kicker">Depop Fold</span>
@@ -512,41 +511,94 @@ function Markets() {
   );
 }
 
-const faqItems = [
-  {
-    question: "Come funziona Resella?",
-    answer: "Carichi la foto del capo; Resella prepara immagini curate e una descrizione pronta. Poi scarichi le immagini e copi il testo per pubblicare il tuo annuncio.",
-  },
-  {
-    question: "Devo avere già foto professionali?",
-    answer: "No. Puoi partire da una foto scattata a casa: Resella ti aiuta a presentare meglio il capo con immagini curate e una composizione pulita.",
-  },
-  {
-    question: "Resella pubblica direttamente sui marketplace?",
-    answer: "No. Prepari i contenuti su Resella, poi scarichi le immagini e copi la descrizione per pubblicare manualmente dove vendi.",
-  },
-  {
-    question: "Dove posso usare le immagini e le descrizioni?",
-    answer: "Puoi usarle sui marketplace che preferisci, tra cui Vinted, Depop, Wallapop, eBay, Etsy e Vestiaire Collective.",
-  },
-];
-
-function FAQSection() {
+function FooterColumn({ title, links, className = "" }) {
   return (
-    <section className="faq reference-section" id="faq" aria-labelledby="faq-title">
-      <div className="faq-content frame reveal">
-        <span className="gallery-kicker">FAQ</span>
-        <h2 id="faq-title" className="split-title">Domande frequenti</h2>
-        <div className="faq-list">
-          {faqItems.map(({ question, answer }) => (
-            <details key={question}>
-              <summary>{question}<span className="faq-chevron" aria-hidden="true" /></summary>
-              <p>{answer}</p>
-            </details>
-          ))}
+    <nav className={`site-footer-column ${className}`} aria-label={title}>
+      <h2>{title}</h2>
+      <ul>
+        {links.map(({ label, href, external = false }) => (
+          <li key={label}>
+            <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function FooterSocialMark({ name }) {
+  const icons = {
+    X: <path d="M18.901 1.153h3.68l-8.04 9.186 9.458 12.508h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.83L0 1.153h7.594l5.243 6.931zm-1.29 19.49h2.039L6.486 3.24H4.298z" />,
+    Instagram: <><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="2" /><circle cx="17.6" cy="6.5" r="1.1" /></>,
+    LinkedIn: <><rect x="2" y="2" width="20" height="20" rx="2.2" /><path d="M6.4 10h2.4v7.3H6.4zm1.2-3.6a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8Zm3.1 3.6H13v1h.03c.35-.65 1.22-1.33 2.5-1.33 2.67 0 3.17 1.76 3.17 4.05v3.58h-2.43v-3.17c0-.76-.02-1.74-1.06-1.74-1.06 0-1.22.83-1.22 1.68v3.23h-2.43z" fill="white" /></>,
+    GitHub: <path d="M12 .7a11.3 11.3 0 0 0-3.58 22.02c.57.1.78-.25.78-.55v-2.13c-3.17.69-3.84-1.35-3.84-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.53-.29-5.2-1.27-5.2-5.63 0-1.24.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.03 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.58.23 2.74.11 3.03.74.8 1.18 1.83 1.18 3.07 0 4.37-2.67 5.34-5.22 5.62.41.35.78 1.04.78 2.1v3.16c0 .3.2.66.79.55A11.3 11.3 0 0 0 12 .7Z" />,
+  };
+
+  return <span className="site-footer-social-mark" role="img" aria-label={name} title={name}><svg viewBox="0 0 24 24" aria-hidden="true">{icons[name]}</svg></span>;
+}
+
+function Footer() {
+  const year = new Date().getFullYear();
+  const socialNames = ["X", "Instagram", "LinkedIn", "GitHub"];
+
+  return (
+    <footer className="site-footer">
+      <div className="site-footer-frame frame">
+        <div className="site-footer-card">
+          <div className="site-footer-main">
+            <div className="site-footer-brand">
+              <a href="#inizio" aria-label="Resella, torna all'inizio">
+                <img src={brandWordmark} alt="Resella" />
+              </a>
+              <p>Trasforma le tue foto in immagini e descrizioni professionali, pronte per i tuoi annunci.</p>
+              <div className="site-footer-socials" role="group" aria-label="Profili social da configurare">
+                {socialNames.map((name) => <FooterSocialMark key={name} name={name} />)}
+              </div>
+            </div>
+
+            <FooterColumn
+              title="Prodotto"
+              links={[
+                { label: "Come funziona", href: "#come-funziona" },
+                { label: "Risultati", href: "#risultati" },
+                { label: "Depop Fold", href: "#depop-fold" },
+                { label: "Prova Resella", href: appUrl },
+              ]}
+            />
+            <FooterColumn
+              title="Risorse"
+              links={[
+                { label: "Informazioni legali", href: "https://resella.meeda.it/legal.html" },
+                { label: "Policy AI", href: "https://resella.meeda.it/ai-policy.html" },
+                { label: "Supporto", href: "mailto:app.resella.ai@gmail.com" },
+              ]}
+            />
+            <FooterColumn
+              title="Azienda"
+              className="site-footer-company"
+              links={[
+                { label: "Chi gestisce Resella", href: "https://resella.meeda.it/legal-notice.html" },
+                { label: "Contatti", href: "mailto:app.resella.ai@gmail.com" },
+                { label: "Genesis Vintage", href: "https://genesisvintage.it/", external: true },
+              ]}
+            />
+          </div>
+
+          <div className="site-footer-bottom">
+            <p>© {year} Resella. Tutti i diritti riservati.</p>
+            <nav aria-label="Informazioni legali">
+              <a href="https://resella.meeda.it/privacy.html">Privacy</a>
+              <a href="https://resella.meeda.it/terms.html">Termini</a>
+              <a href="https://resella.meeda.it/cookie.html">Cookie</a>
+              <a href="https://resella.meeda.it/ai-policy.html">Policy AI</a>
+            </nav>
+          </div>
         </div>
+        <img className="site-footer-watermark" src={brandWordmark} alt="" aria-hidden="true" />
       </div>
-    </section>
+    </footer>
   );
 }
 
@@ -564,7 +616,7 @@ export default function App() {
       <Gallery />
       <PartnerSection />
       <DepopFoldSection />
-      <FAQSection />
     </main>
+    <Footer />
   </>;
 }
