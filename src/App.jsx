@@ -368,6 +368,93 @@ function Gallery() {
   );
 }
 
+const foldFeatures = {
+  left: [
+    { icon: "symmetry", title: "Simmetria", description: "Allineamento perfetto del capo e delle maniche per un risultato armonioso." },
+    { icon: "folds", title: "Pieghe naturali", description: "Pieghe pulite e realistiche che valorizzano la forma del capo." },
+    { icon: "balance", title: "Equilibrio visivo", description: "Inquadratura e proporzioni studiate per un flat lay più armonioso." },
+  ],
+  right: [
+    { icon: "chart", title: "Look più vendibile", description: "Un aspetto curato che cattura l’attenzione e valorizza il capo." },
+    { icon: "image", title: "Composizione pulita", description: "Un flat lay ordinato, chiaro e professionale, in stile Depop." },
+    { icon: "phone", title: "Pronto per Depop", description: "Immagini ottimizzate per la visualizzazione sulla piattaforma." },
+  ],
+};
+
+function FoldIcon({ name }) {
+  const common = { fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
+  const paths = {
+    symmetry: <><path d="M16 5v22M8 9 4 13l4 4M24 9l4 4-4 4M11 8l-3 5 3 5M21 8l3 5-3 5"/><path d="M5 23h7M20 23h7"/></>,
+    folds: <><path d="M3 9c3-4 6 4 9 0s6 4 9 0 6 4 8 0M3 16c3-4 6 4 9 0s6 4 9 0 6 4 8 0M3 23c3-4 6 4 9 0s6 4 9 0 6 4 8 0"/></>,
+    balance: <><rect x="7" y="7" width="18" height="18" rx="2"/><path d="M12 3H6a3 3 0 0 0-3 3v6M20 29h6a3 3 0 0 0 3-3v-6M3 20v6a3 3 0 0 0 3 3h6M29 12V6a3 3 0 0 0-3-3h-6"/></>,
+    chart: <><path d="M4 27V17h6v10M14 27V11h6v16M24 27V5h6v22M4 12l8-6 6 2 9-6"/><path d="M23 2h4v4"/></>,
+    image: <><rect x="3" y="4" width="26" height="24" rx="3"/><circle cx="11" cy="12" r="2"/><path d="m5 24 8-8 5 5 4-4 7 7"/></>,
+    phone: <><rect x="9" y="2.5" width="14" height="27" rx="3"/><path d="M14 6h4M14 25.5h4"/></>,
+  };
+
+  return <svg className="fold-feature-icon" viewBox="0 0 32 32" aria-hidden="true" {...common}>{paths[name]}</svg>;
+}
+
+function FoldFeature({ feature }) {
+  return (
+    <li className="fold-feature reveal">
+      <span className="fold-feature-mark"><FoldIcon name={feature.icon} /></span>
+      <span className="fold-feature-copy">
+        <strong>{feature.title}</strong>
+        <span>{feature.description}</span>
+      </span>
+    </li>
+  );
+}
+
+function FoldColumn({ title, features, side }) {
+  return (
+    <div className={`fold-column fold-column--${side}`}>
+      <h3>{title}</h3>
+      <ul>{features.map((feature) => <FoldFeature key={feature.title} feature={feature} />)}</ul>
+    </div>
+  );
+}
+
+function DepopFoldSection() {
+  return (
+    <section className="fold-section reference-section" aria-labelledby="fold-title">
+      <div className="frame fold-frame">
+        <header className="fold-heading reveal">
+          <span className="gallery-kicker">Depop Fold</span>
+          <h2 id="fold-title" className="split-title">Padroneggia il <strong>Depop Fold.</strong></h2>
+          <p className="fold-subheading split-subtitle">Resella capisce equilibrio, pieghe e composizione.</p>
+          <p className="fold-description">Analizza i tuoi capi e ti guida nella creazione di flat lay puliti, simmetrici e curati.</p>
+        </header>
+
+        <div className="fold-layout">
+          <FoldColumn title="Cosa curiamo" features={foldFeatures.left} side="left" />
+          <div className="fold-showcase">
+            <div className="fold-video-frame reveal">
+              <video
+                className="fold-video"
+                src="/depop-fold-loop.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+                tabIndex={-1}
+              />
+            </div>
+            <div className="fold-actions reveal">
+              <a className="action fold-video-action" href={appUrl}>Prova gratis<Arrow /></a>
+              <a className="fold-more-link" href="#risultati">Scopri altri esempi<Arrow /></a>
+            </div>
+          </div>
+          <FoldColumn title="Nel risultato" features={foldFeatures.right} side="right" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PartnerSection() {
   return (
     <section className="partner-section reference-section" aria-labelledby="partner-title">
@@ -436,6 +523,7 @@ export default function App() {
       <Markets />
       <Gallery />
       <PartnerSection />
+      <DepopFoldSection />
     </main>
   </>;
 }
