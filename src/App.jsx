@@ -209,7 +209,7 @@ function Header() {
           <a href="#come-funziona">Come funziona</a>
         </nav>
         <a className="action header-action" href={appEntryUrl}>
-          Prova gratis
+          Prova ora
         </a>
       </div>
     </header>
@@ -227,7 +227,7 @@ function Hero() {
             </h1>
             <div className="hero-actions">
               <a className="action hero-cta" href={appEntryUrl}>
-                Prova gratis
+                Genera subito
               </a>
               <a className="text-link" href="#risultati">
                 Guarda i risultati
@@ -368,7 +368,7 @@ function Gallery() {
           ))}
         </div>
         <div className="gallery-actions reveal">
-          <a className="action gallery-cta" href={appEntryUrl}>Prova gratis<Arrow /></a>
+          <a className="action gallery-cta" href={appEntryUrl}>Crea le tue immagini<Arrow /></a>
         </div>
       </div>
     </section>
@@ -451,7 +451,7 @@ function DepopFoldSection() {
               />
             </div>
             <div className="fold-actions reveal">
-              <a className="action fold-video-action" href={appEntryUrl}>Prova gratis<Arrow /></a>
+              <a className="action fold-video-action" href={appEntryUrl}>Prova il Depop Fold<Arrow /></a>
               <a className="fold-more-link" href="#risultati">Scopri altri esempi<Arrow /></a>
             </div>
           </div>
