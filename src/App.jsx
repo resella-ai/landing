@@ -616,6 +616,7 @@ function Footer() {
           <div className="site-footer-bottom">
             <p>© {year} Resella. Tutti i diritti riservati.</p>
             <nav aria-label="Informazioni legali">
+              <a href="/elimina-account">Eliminazione account</a>
               <a href="https://resella.meeda.it/privacy.html">Privacy</a>
               <a href="https://resella.meeda.it/terms.html">Termini</a>
               <a href="https://resella.meeda.it/cookie.html">Cookie</a>

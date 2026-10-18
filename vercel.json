@@ -1,4 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "react-build"
+  "outputDirectory": "react-build",
+  "rewrites": [
+    {
+      "source": "/elimina-account",
+      "destination": "/elimina-account/index.html"
+    },
+    {
+      "source": "/elimina-account/",
+      "destination": "/elimina-account/index.html"
+    }
+  ]
 }
