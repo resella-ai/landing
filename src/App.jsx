@@ -187,6 +187,7 @@ function Arrow({ className = "" }) {
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const isHomePage = window.location.pathname === "/";
 
   useEffect(() => {
     const updateScrollState = () => {
@@ -201,12 +202,12 @@ function Header() {
   return (
     <header className={`site-header${isScrolled ? " is-scrolled" : ""}`} id="inizio">
       <div className="header-row frame">
-        <a className="brand" href="#inizio" aria-label="Resella, torna all'inizio">
+        <a className="brand" href={isHomePage ? "#inizio" : "/"} aria-label="Resella, torna all'inizio">
           <img className="brand-logo" src={brandWordmark} alt="" />
         </a>
         <nav aria-label="Navigazione principale">
-          <a href="#risultati">Risultati</a>
-          <a href="#come-funziona">Come funziona</a>
+          <a href={isHomePage ? "#risultati" : "/#risultati"}>Risultati</a>
+          <a href={isHomePage ? "#come-funziona" : "/#come-funziona"}>Come funziona</a>
         </nav>
         <a className="action header-action" href={appEntryUrl}>
           Prova ora
@@ -548,6 +549,8 @@ function FooterSocialMark({ name }) {
 
 function Footer() {
   const year = new Date().getFullYear();
+  const isHomePage = window.location.pathname === "/";
+  const homeAnchor = (href) => href.startsWith("#") && !isHomePage ? "/" + href : href;
 
   return (
     <footer className="site-footer">
@@ -586,9 +589,9 @@ function Footer() {
             <FooterColumn
               title="Prodotto"
               links={[
-                { label: "Come funziona", href: "#come-funziona" },
-                { label: "Risultati", href: "#risultati" },
-                { label: "Depop Fold", href: "#depop-fold" },
+                { label: "Come funziona", href: homeAnchor("#come-funziona") },
+                { label: "Risultati", href: homeAnchor("#risultati") },
+                { label: "Depop Fold", href: homeAnchor("#depop-fold") },
                 { label: "Prova Resella", href: appEntryUrl },
               ]}
             />
@@ -632,9 +635,41 @@ function Footer() {
   );
 }
 
+function SeoLandingPage({ type }) {
+  const isVinted = type === "vinted";
+  return (
+    <>
+      <a className="skip-link" href="#contenuto">Vai al contenuto</a>
+      <Header />
+      <main id="contenuto" className="seo-landing-main">
+        <article className="seo-landing-box frame">
+          <h1>{isVinted ? "Foto per Vinted, curate in pochi passaggi." : "Foto flat lay curate per i tuoi annunci Depop."}</h1>
+          {isVinted ? (
+            <>
+              <p>Con Resella parti da una foto del tuo capo e prepari immagini più curate e una descrizione pronta da usare nel tuo annuncio Vinted. Non devi costruire ogni volta un set fotografico o ricominciare da zero con il testo.</p>
+              <p>Carica lo scatto, scegli come presentare il prodotto e lascia che Resella prepari i materiali. Puoi creare immagini in stile indossato oppure flat lay, oltre a ottenere una descrizione da controllare e copiare.</p>
+              <p>Quando il risultato è pronto, scarichi le immagini, copi la descrizione e completi manualmente il tuo annuncio su Vinted. Resella non pubblica direttamente sulla piattaforma: prezzo, categoria, condizioni e pubblicazione restano sotto il tuo controllo.</p>
+            </>
+          ) : (
+            <>
+              <p>Depop Fold è la modalità di Resella pensata per preparare immagini flat lay dei tuoi capi. Parti da una foto e ottieni una proposta di composizione più ordinata, con attenzione alla disposizione, alla simmetria e alle pieghe.</p>
+              <p>È un modo più semplice per preparare la presentazione visiva di felpe, t-shirt, pantaloni, giacche e altri capi che vuoi mostrare stesi. Resella prepara anche una descrizione da copiare, così hai immagini e testo nello stesso flusso.</p>
+              <p>Controlla sempre che il risultato rappresenti fedelmente il prodotto. Poi scarichi le immagini, copi la descrizione e pubblichi manualmente il tuo annuncio su Depop: Resella non effettua la pubblicazione direttamente sulla piattaforma.</p>
+            </>
+          )}
+        </article>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
 export default function App() {
   useSmoothScroll();
   useScrollReveal();
+  const currentPath = window.location.pathname.replace(/\/+$/, "");
+  if (currentPath === "/foto-prodotti-vinted") return <SeoLandingPage type="vinted" />;
+  if (currentPath === "/foto-prodotti-depop") return <SeoLandingPage type="depop" />;
   return <>
     <a className="skip-link" href="#contenuto">Vai al contenuto</a>
     <Header />
