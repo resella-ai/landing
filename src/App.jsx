@@ -595,6 +595,8 @@ function Footer() {
             <FooterColumn
               title="Risorse"
               links={[
+                { label: "Foto per Vinted", href: "/foto-prodotti-vinted/" },
+                { label: "Foto per Depop", href: "/foto-prodotti-depop/" },
                 { label: "Informazioni legali", href: "https://resella.meeda.it/legal.html" },
                 { label: "Policy AI", href: "https://resella.meeda.it/ai-policy.html" },
                 { label: "Supporto", href: "mailto:app.resella.ai@gmail.com" },
