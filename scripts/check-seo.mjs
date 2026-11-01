@@ -8,6 +8,12 @@ const required = [
   ["index.html", "application/ld+json"],
   ["public/robots.txt", "Sitemap: https://www.getresella.it/sitemap.xml"],
   ["public/sitemap.xml", "<loc>https://www.getresella.it/</loc>"],
+  ["public/sitemap.xml", "<loc>https://www.getresella.it/foto-prodotti-vinted/</loc>"],
+  ["public/sitemap.xml", "<loc>https://www.getresella.it/foto-prodotti-depop/</loc>"],
+  ["public/foto-prodotti-vinted/index.html", "rel=\"canonical\""],
+  ["public/foto-prodotti-vinted/index.html", "<h1>"],
+  ["public/foto-prodotti-depop/index.html", "rel=\"canonical\""],
+  ["public/foto-prodotti-depop/index.html", "<h1>"],
 ];
 
 let failed = false;
@@ -18,4 +24,4 @@ for (const [file, token] of required) {
   }
 }
 if (failed) process.exit(1);
-console.log("SEO foundation checks passed.");
+console.log("SEO landing-page checks passed.");
