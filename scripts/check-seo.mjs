@@ -10,10 +10,15 @@ const required = [
   ["public/sitemap.xml", "<loc>https://www.getresella.it/</loc>"],
   ["public/sitemap.xml", "<loc>https://www.getresella.it/foto-prodotti-vinted/</loc>"],
   ["public/sitemap.xml", "<loc>https://www.getresella.it/foto-prodotti-depop/</loc>"],
-  ["public/foto-prodotti-vinted/index.html", "rel=\"canonical\""],
-  ["public/foto-prodotti-vinted/index.html", "<h1>"],
-  ["public/foto-prodotti-depop/index.html", "rel=\"canonical\""],
-  ["public/foto-prodotti-depop/index.html", "<h1>"],
+  ["foto-prodotti-vinted/index.html", "rel=\"canonical\""],
+  ["foto-prodotti-vinted/index.html", "Foto per Vinted: immagini curate"],
+  ["foto-prodotti-vinted/index.html", "id=\"root\""],
+  ["foto-prodotti-depop/index.html", "rel=\"canonical\""],
+  ["foto-prodotti-depop/index.html", "Foto per Depop: flat lay"],
+  ["foto-prodotti-depop/index.html", "id=\"root\""],
+  ["src/App.jsx", "seo-landing-box"],
+  ["src/App.jsx", "Foto per Vinted, curate in pochi passaggi."],
+  ["src/App.jsx", "Foto flat lay curate per i tuoi annunci Depop."],
 ];
 
 let failed = false;
