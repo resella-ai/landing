@@ -16,5 +16,12 @@ export default defineConfig({
   build: {
     outDir: resolve(projectRoot, "react-build"),
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(projectRoot, "index.html"),
+        vinted: resolve(projectRoot, "foto-prodotti-vinted/index.html"),
+        depop: resolve(projectRoot, "foto-prodotti-depop/index.html"),
+      },
+    },
   },
 });
