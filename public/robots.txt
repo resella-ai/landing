@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.getresella.it/sitemap.xml
+Sitemap: https://getresella.it/sitemap.xml
