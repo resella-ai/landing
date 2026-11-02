@@ -600,6 +600,7 @@ function Footer() {
               links={[
                 { label: "Foto per Vinted", href: "/foto-prodotti-vinted/" },
                 { label: "Foto per Depop", href: "/foto-prodotti-depop/" },
+                { label: "Cos\u0027è Resella", href: "/cos-e-resella/" },
                 { label: "Informazioni legali", href: "https://resella.meeda.it/legal.html" },
                 { label: "Policy AI", href: "https://resella.meeda.it/ai-policy.html" },
                 { label: "Supporto", href: "mailto:app.resella.ai@gmail.com" },
@@ -669,7 +670,35 @@ export default function App() {
   useScrollReveal();
   const currentPath = window.location.pathname.replace(/\/+$/, "");
   if (currentPath === "/foto-prodotti-vinted") return <SeoLandingPage type="vinted" />;
+
+function AboutResellaPage() {
+  return <>
+    <a className="skip-link" href="#contenuto">Vai al contenuto</a>
+    <Header />
+    <main id="contenuto" className="about-resella-main">
+      <article className="about-resella frame">
+        <span className="about-resella-kicker">Conosci Resella</span>
+        <h1>Cos'è Resella</h1>
+        <p className="about-resella-lead">Resella è uno strumento basato sull'intelligenza artificiale che aiuta chi vende online a preparare foto prodotto curate e descrizioni per i propri annunci, partendo da una semplice fotografia.</p>
+        <section><h2>A cosa serve</h2><p>Preparare un annuncio richiede tempo: fotografare il capo, sistemare le immagini e scrivere il testo. Resella riunisce questi passaggi in un unico flusso, per aiutarti a presentare meglio i prodotti e dedicare meno tempo alla preparazione degli annunci.</p></section>
+        <section><h2>Come funziona</h2><ol>
+          <li><strong>Carica una foto.</strong> Parti da uno scatto del capo che vuoi vendere.</li>
+          <li><strong>Prepara le immagini.</strong> Scegli lo stile disponibile, ad esempio una presentazione indossata o un'immagine flat lay.</li>
+          <li><strong>Ottieni la descrizione.</strong> Resella genera un testo da controllare e personalizzare prima di usarlo.</li>
+          <li><strong>Scarica e pubblica.</strong> Scarica le immagini, copia la descrizione e crea manualmente il tuo annuncio sulla piattaforma che preferisci.</li>
+        </ol></section>
+        <section><h2>Per chi è pensato</h2><p>Resella è pensato per venditori indipendenti, reseller, negozi e attività e-commerce che vogliono rendere più semplice la preparazione delle schede prodotto, senza dover allestire ogni volta un set fotografico.</p></section>
+        <section><h2>Con quali piattaforme puoi usarlo</h2><p>Puoi utilizzare i materiali preparati con Resella per i tuoi annunci su marketplace e canali di vendita online, tra cui <a href="/foto-prodotti-vinted/">Vinted</a> e <a href="/foto-prodotti-depop/">Depop</a>. Resella non è un servizio di pubblicazione automatica: sei tu a verificare i contenuti e a pubblicare l'annuncio.</p></section>
+        <section><h2>Il controllo resta tuo</h2><p>L'intelligenza artificiale offre una base di lavoro, non sostituisce la verifica del venditore. Prima di pubblicare, controlla che immagini, dettagli e descrizione rappresentino fedelmente il prodotto, comprese condizioni, difetti e caratteristiche.</p></section>
+        <div className="about-resella-cta"><a className="action" href={appEntryUrl}>Prova Resella</a></div>
+      </article>
+    </main>
+    <Footer />
+  </>;
+}
+
   if (currentPath === "/foto-prodotti-depop") return <SeoLandingPage type="depop" />;
+  if (currentPath === "/cos-e-resella") return <AboutResellaPage />;
   return <>
     <a className="skip-link" href="#contenuto">Vai al contenuto</a>
     <Header />

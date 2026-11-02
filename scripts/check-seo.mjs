@@ -19,6 +19,10 @@ const required = [
   ["src/App.jsx", "seo-landing-box"],
   ["src/App.jsx", "Foto per Vinted, curate in pochi passaggi."],
   ["src/App.jsx", "Foto flat lay curate per i tuoi annunci Depop."],
+  ["cos-e-resella/index.html", "AboutPage"],
+  ["cos-e-resella/index.html", "Resella è uno strumento basato sull"],
+  ["src/App.jsx", "function AboutResellaPage()"],
+  ["public/sitemap.xml", "<loc>https://www.getresella.it/cos-e-resella/</loc>"],
 ];
 
 let failed = false;
