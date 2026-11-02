@@ -1262,3 +1262,17 @@ main {
   .seo-landing-box { width: calc(100% - 32px); padding: 30px 22px; border-radius: 18px; }
   .seo-landing-box p { font-size: 14px; line-height: 1.75; }
 }
+
+/* Brand definition page */
+.about-resella-main { padding: clamp(54px, 8vw, 104px) 0; background: var(--paper); }
+.about-resella { width: min(calc(100% - 40px), 860px); padding: clamp(30px, 6vw, 68px); border: 1px solid var(--rule); border-radius: 24px; background: #fff; }
+.about-resella-kicker { display: block; margin-bottom: 14px; color: var(--violet); font-size: 12px; font-weight: var(--weight-bold); letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+.about-resella h1 { margin: 0; color: var(--ink); font-size: clamp(36px, 5vw, 54px); line-height: 1.08; text-align: center; }
+.about-resella-lead { max-width: 690px; margin: 22px auto 44px; color: var(--ink); font-size: clamp(17px, 2vw, 20px); line-height: 1.7; text-align: center; }
+.about-resella section { max-width: 680px; margin: 34px auto 0; }
+.about-resella section h2 { margin: 0 0 12px; color: var(--ink); font-size: clamp(21px, 3vw, 26px); letter-spacing: -.03em; }
+.about-resella section p, .about-resella section li { color: var(--muted); font-size: 15px; line-height: 1.85; }
+.about-resella section ol { display: grid; gap: 12px; padding-left: 22px; }
+.about-resella section a { color: var(--violet); font-weight: var(--weight-semibold); text-decoration: underline; text-underline-offset: 3px; }
+.about-resella-cta { display: flex; justify-content: center; margin-top: 44px; }
+@media (max-width: 640px) { .about-resella-main { padding: 36px 0; } .about-resella { width: calc(100% - 32px); padding: 30px 22px; border-radius: 18px; } .about-resella-lead { margin: 18px auto 34px; font-size: 17px; } .about-resella section { margin-top: 28px; } .about-resella section p, .about-resella section li { font-size: 14px; } }
