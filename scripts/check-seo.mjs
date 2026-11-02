@@ -17,18 +17,18 @@ const errors = [];
 for (const page of pages) {
   const html = read(page.file);
   const expectedUrl = `${canonicalHost}${page.path}`;
-  const canonical = html.match(/<link\\s+rel=["']canonical["']\\s+href=["']([^"']+)["']/i)?.[1];
-  const ogUrl = html.match(/<meta\\s+property=["']og:url["']\\s+content=["']([^"']+)["']/i)?.[1];
+  const canonical = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
+  const ogUrl = html.match(/<meta\s+property=["']og:url["']\s+content=["']([^"']+)["']/i)?.[1];
 
   if (canonical !== expectedUrl) errors.push(`${page.file}: canonical should be ${expectedUrl}`);
   if (ogUrl !== expectedUrl) errors.push(`${page.file}: og:url should be ${expectedUrl}`);
   if (html.includes("www.getresella.it")) errors.push(`${page.file}: contains the non-canonical www host`);
-  if (!/<title>[^<]+<\\/title>/i.test(html)) errors.push(`${page.file}: missing title`);
-  if (!/<meta\\s+name=["']description["']\\s+content=["'][^"']+["']/i.test(html)) {
+  if (!/<title>[^<]+<\/title>/i.test(html)) errors.push(`${page.file}: missing title`);
+  if (!/<meta\s+name=["']description["']\s+content=["'][^"']+["']/i.test(html)) {
     errors.push(`${page.file}: missing meta description`);
   }
 
-  const jsonLdBlocks = [...html.matchAll(/<script\\s+type=["']application\\/ld\\+json["']>([\\s\\S]*?)<\\/script>/gi)];
+  const jsonLdBlocks = [...html.matchAll(/<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi)];
   for (const [, rawJson] of jsonLdBlocks) {
     try {
       const structuredData = JSON.parse(rawJson);
@@ -50,7 +50,7 @@ if (!robots.includes(`Sitemap: ${canonicalHost}/sitemap.xml`)) {
 if (robots.includes("www.getresella.it")) errors.push("public/robots.txt: contains the non-canonical www host");
 
 const sitemap = read("public/sitemap.xml");
-const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\\/loc>/g)].map((match) => match[1]);
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 const expectedSitemapUrls = pages.map(({ path }) => `${canonicalHost}${path}`);
 for (const url of expectedSitemapUrls) {
   if (!sitemapUrls.includes(url)) errors.push(`public/sitemap.xml: missing ${url}`);
