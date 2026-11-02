@@ -21,6 +21,7 @@ export default defineConfig({
         main: resolve(projectRoot, "index.html"),
         vinted: resolve(projectRoot, "foto-prodotti-vinted/index.html"),
         depop: resolve(projectRoot, "foto-prodotti-depop/index.html"),
+        about: resolve(projectRoot, "cos-e-resella/index.html"),
       },
     },
   },
