@@ -28,8 +28,8 @@ try {
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
   const builtAssetBySource = new Map(
     Object.entries(manifest)
-      .filter(([, entry]) => entry.file && /\\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(entry.file))
-      .map(([key, entry]) => [`/${key.replace(/^\\//, "")}`, `/${entry.file}`])
+      .filter(([, entry]) => entry.file && /\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(entry.file))
+      .map(([key, entry]) => [`/${key.replace(/^\//, "")}`, `/${entry.file}`])
   );
 
   const { default: App } = await server.ssrLoadModule("/src/App.jsx");
