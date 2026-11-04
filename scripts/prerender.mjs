@@ -45,6 +45,9 @@ try {
     for (const [sourceUrl, builtUrl] of builtAssetBySource) {
       markup = markup.split(sourceUrl).join(builtUrl);
     }
+    if (/\bsrc=["']\/src\/assets\//.test(markup)) {
+      throw new Error(`Unresolved source asset URL in prerendered route: ${route.pathname}`);
+    }
     const root = '<div id="root"></div>';
 
     if (!html.includes(root)) {
