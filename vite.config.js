@@ -16,6 +16,7 @@ export default defineConfig({
   build: {
     outDir: resolve(projectRoot, "react-build"),
     emptyOutDir: true,
+    manifest: true,
     rollupOptions: {
       input: {
         main: resolve(projectRoot, "index.html"),
